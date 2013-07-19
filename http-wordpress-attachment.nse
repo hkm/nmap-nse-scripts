@@ -30,7 +30,7 @@ Original advisory:
 -- @args http-wordpress-attachment.out If set it saves the URL list in this file.
 ---
 
-author = "Paulino Calderon, Pedro Joaquin"
+author = "Pedro Joaquin based on Paulino Calderon http-wordpress-enum"
 license = "Same as Nmap--See http://nmap.org/book/man-legal.html"
 categories = {"auth", "intrusive", "vuln"}
 
@@ -100,7 +100,7 @@ end
 ---
 action = function(host, port)
   local basepath = stdnse.get_script_args("http-wordpress-attachment.basepath") or "/"
-  local limit = stdnse.get_script_args("http-wordpress-attachment.limit") or 250
+  local limit = stdnse.get_script_args("http-wordpress-attachment.limit") or 100
   local filewrite = stdnse.get_script_args("http-wordpress-attachment.out")
   local output = {""}
   local users = {}
