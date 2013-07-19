@@ -4,6 +4,9 @@ local stdnse = require "stdnse"
 local string = require "string"
 
 description = [[
+Stores the results of an HTTP(S) scan on a HTML page with JQuery. Shows IP, header,
+realm and tries to identify if target is a router, camera or common web server.
+
 Almacena los resultados de un barrido HTTP(S) en una página web con Frames y JQuery.
 Muestra las direcciones IP, un mirror del contenido html, el contenido de la cabecera
 www-authenticate. De acuerdo al header server o al contenido de la página que obtiene
