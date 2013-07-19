@@ -9,7 +9,7 @@ Muestra las direcciones IP, un mirror del contenido html, el contenido de la cab
 www-authenticate. De acuerdo al header server o al contenido de la página que obtiene
 muestra si es un router, cámara o firewall.
 ]]
-author = {'Pedro Joaquín'}
+author = {'Pedro Joaquin pjoaquin()websec.mx'}
 license = "Same as Nmap--See http://nmap.org/book/man-legal.html"
 categories = {"discovery"}
 
