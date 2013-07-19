@@ -1,7 +1,6 @@
 nmap-nse-scripts
 ================
 
-Some of my Nmap scripts
 
 <h3>http-wordpress-attachment.nse</h3>
    
