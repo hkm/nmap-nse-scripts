@@ -56,7 +56,7 @@ References:
 
 author = "Pedro Joaquin <pjoaquin()websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
-categories = {"info", "safe"}
+categories = {"discover", "version", "safe"}
 
 portrule = shortport.portnumber({49152,49153,49154})
 
