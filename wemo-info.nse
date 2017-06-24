@@ -41,15 +41,11 @@ References:
 -- |   iconVersion: 0|49154
 -- |   binaryState: 1
 -- |   Switch is currently turned: ON
--- |   Nearby wireless networks: Page:1/1/8$
--- | INFINITUM|3|10|WPA1PSKWPA2PSK/TKIPAES,
--- | INFINITUM|5|39|WPA1PSKWPA2PSK/TKIPAES,
+-- |   Nearby wireless networks: Page:1/1/4$
 -- | Visita Cozumel FTW|5|0|OPEN/NONE,
 -- | PVGP-2|6|0|WPA1PSKWPA2PSK/TKIPAES,
 -- | INFINITUM|8|65|WPA2PSK/AES,
--- | INFINITUM|10|0|WPA1PSKWPA2PSK/TKIPAES,
--- | INFINITUM|11|100|WPA2PSK/AES,
--- |_INFINITUM0|11|0|WPA1PSKWPA2PSK/TKIPAES,
+-- |_INFINITUM|11|0|WPA1PSKWPA2PSK/TKIPAES,
 --
 -- @xmloutput
 -- <elem key="deviceType">urn:Belkin:device:controllee:1</elem>
@@ -67,7 +63,7 @@ References:
 -- <elem key="iconVersion">0|49153</elem>
 -- <elem key="binaryState">1</elem>
 -- <elem key="Switch is currently turned">ON</elem>
--- <elem key="Nearby wireless networks">Page:1/1/6$&#xa;INFINITUM|1|29|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|5|10|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|6|15|WEP,&#xa;INFINITUM|8|65|WPA2PSK/AES,&#xa;INFINITUM|10|15|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|11|0|WPA2PSK/AES,&#xa;</elem>
+-- <elem key="Nearby wireless networks">Page:1/1/4$&#xa;Visita Cozumel FTW|5|0|OPEN/NONE,&#xa;PVGP-2|6|0|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|8|65|WPA2PSK/AES,&#xa;INFINITUM|11|0|WPA1PSKWPA2PSK/TKIPAES,&#xa;</elem>
 ---
 
 author = "Pedro Joaquin <pjoaquin()websec.mx>"
