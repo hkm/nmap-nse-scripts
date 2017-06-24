@@ -12,7 +12,7 @@ current switch state (ON/OFF).
 There is a separate NSE script that may be used for changing the switch state.
 No authentication is required.
 
-Valid on Belkin Wemo Switch version WeMo_WW_2.00.10966.PVT-OWRT-SNS on 6/22/17
+Valid on Belkin Wemo Switch version WeMo_WW_2.00.10966.PVT-OWRT-SNS on 6/24/17
 
 References:
 * http://websec.ca/blog/view/Belkin-Wemo-Switch-NMap-Scripts
@@ -21,8 +21,7 @@ References:
 ]]
 
 ---
--- @usage nmap -p49152,49153,49154 --script wemo-info <target>
--- @usage nmap -p49152,49153,49154 --script info <target>
+-- @usage nmap -p49152,49153,49154 --script wemo-info.nse <target>
 --
 -- @output
 -- | wemo-info:
@@ -43,15 +42,32 @@ References:
 -- |   binaryState: 1
 -- |   Switch is currently turned: ON
 -- |   Nearby wireless networks: Page:1/1/8$
--- | INFINITUMewld|3|10|WPA1PSKWPA2PSK/TKIPAES,
--- | INFINITUMuefg|5|39|WPA1PSKWPA2PSK/TKIPAES,
+-- | INFINITUM|3|10|WPA1PSKWPA2PSK/TKIPAES,
+-- | INFINITUM|5|39|WPA1PSKWPA2PSK/TKIPAES,
 -- | Visita Cozumel FTW|5|0|OPEN/NONE,
 -- | PVGP-2|6|0|WPA1PSKWPA2PSK/TKIPAES,
--- | INFINITUMD9E758|8|65|WPA2PSK/AES,
--- | INFINITUMu8dn|10|0|WPA1PSKWPA2PSK/TKIPAES,
--- | INFINITUM9043|11|100|WPA2PSK/AES,
--- |_INFINITUM082E37|11|0|WPA1PSKWPA2PSK/TKIPAES,
+-- | INFINITUM|8|65|WPA2PSK/AES,
+-- | INFINITUM|10|0|WPA1PSKWPA2PSK/TKIPAES,
+-- | INFINITUM|11|100|WPA2PSK/AES,
+-- |_INFINITUM0|11|0|WPA1PSKWPA2PSK/TKIPAES,
 --
+-- @outputxml
+-- <elem key="deviceType">urn:Belkin:device:controllee:1</elem>
+-- <elem key="manufacturer">Belkin International Inc.</elem>
+-- <elem key="manufacturerURL">http://www.belkin.com</elem>
+-- <elem key="modelDescription">Belkin Plugin Socket 1.0</elem>
+-- <elem key="modelName">Socket</elem>
+-- <elem key="modelNumber">1.0</elem>
+-- <elem key="modelURL">http://www.belkin.com/plugin/</elem>
+-- <elem key="serialNumber">220333K0203A4E</elem>
+-- <elem key="UDN">uuid:Socket-1_0-220333K0203A4E</elem>
+-- <elem key="UPC">123456789</elem>
+-- <elem key="macAddress">EC1A59ED59C4</elem>
+-- <elem key="firmwareVersion">WeMo_WW_2.00.10966.PVT-OWRT-SNS</elem>
+-- <elem key="iconVersion">0|49153</elem>
+-- <elem key="binaryState">1</elem>
+-- <elem key="Switch is currently turned">ON</elem>
+-- <elem key="Nearby wireless networks">Page:1/1/6$&#xa;INFINITUM|1|29|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|5|10|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|6|15|WEP,&#xa;INFINITUM|8|65|WPA2PSK/AES,&#xa;INFINITUM|10|15|WPA1PSKWPA2PSK/TKIPAES,&#xa;INFINITUM|11|0|WPA2PSK/AES,&#xa;</elem>
 ---
 
 author = "Pedro Joaquin <pjoaquin()websec.mx>"
@@ -93,13 +109,23 @@ local function GetInformation(host, port)
     local path = "/upnp/control/WiFiSetup1"
 	local options = {header={["SOAPACTION"]='"urn:Belkin:service:WiFiSetup1:1#GetApList"', ["Content-Type"]="text/xml"}}
 	local result = http.post( host, port, path, options, nil, req)
-	stdnse.debug1("Status : %s", result['status-line'] or "No Response")
-    if(result['status'] ~= 200 or result['content-length'] == 0) then
-	  stdnse.debug1("Status : %s", result['status-line'] or "No Response")
-      return false, "Couldn't download file: " .. path
-	else
+	stdnse.debug1("Status-a : %s", result['status-line'] or "No Response")
+    if result['status-line'] and result['status-line']:match("200 OK") then
 	  output["Nearby wireless networks"] = result['body']:match("<ApList>([^<]*)</ApList>")
+	else
+	  stdnse.debug1("Status-b : %s", result['status-line'] or "No Response")
+      return false, "Couldn't download file: " .. path
     end
+	
+    -- set the port version
+    port.version.name = "http"
+    port.version.name_confidence = 10
+    port.version.product = output["modelDescription"] or nil
+    port.version.version = output["firmwareVersion"] or nil
+    port.version.devicetype = output["deviceType"] or nil
+    table.insert(port.version.cpe, "cpe:/h:".. output["manufacturer"] .. ":" .. output["modelDescription"])
+
+    nmap.set_port_version(host, port, "hardmatched")
 
     return output
 
@@ -110,5 +136,13 @@ local function GetInformation(host, port)
 end
 
 action = function(host,port)
+
+  -- Identify servers that answer 200 to invalid HTTP requests and exit as these would invalidate the tests
+  local status_404, result_404, _ = http.identify_404(host,port)
+  if ( status_404 and result_404 == 200 ) then
+    stdnse.debug1("Exiting due to ambiguous response from web server on %s:%s. All URIs return status 200.", host.ip, port.number)
+    return nil
+  end
+
   return GetInformation(host, port)
 end
