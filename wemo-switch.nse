@@ -15,7 +15,7 @@ No authentication is required.
 Valid on Belkin Wemo Switch version WeMo_WW_2.00.10966.PVT-OWRT-SNS on 6/22/17
 
 References:
-* http://websec.mx/
+* http://websec.ca/blog/view/Belkin-Wemo-Switch-NMap-Scripts
 * https://www.tripwire.com/state-of-security/featured/my-sector-story-root-shell-on-the-belkin-wemo-switch/
 * https://www.exploitee.rs/index.php/Belkin_Wemo
 ]]
