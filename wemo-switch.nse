@@ -28,6 +28,11 @@ References:
 --|   BinaryState: 1
 --|_  Switch is currently turned: ON
 --
+-- @xmloutput
+-- <elem key="BinaryState">1</elem>
+-- <elem key="Switch is currently turned">ON</elem>
+-- 
+-- @args wemo-switch.BinaryState Turn the device ON (1) or OFF (0).
 ---
 
 author = "Pedro Joaquin <pjoaquin()websec.mx>"
