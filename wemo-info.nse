@@ -51,7 +51,7 @@ References:
 -- | INFINITUM|11|100|WPA2PSK/AES,
 -- |_INFINITUM0|11|0|WPA1PSKWPA2PSK/TKIPAES,
 --
--- @outputxml
+-- @xmloutput
 -- <elem key="deviceType">urn:Belkin:device:controllee:1</elem>
 -- <elem key="manufacturer">Belkin International Inc.</elem>
 -- <elem key="manufacturerURL">http://www.belkin.com</elem>
