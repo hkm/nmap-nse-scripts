@@ -2,11 +2,11 @@ nmap-nse-scripts
 ================
 
 
-<h3>philips-hue-info.nse</h3>
+<h3>philipshue-info.nse</h3>
 
 The Philips Hue is a wireless lighting system. This script obtains information from the web API of the Philips Hue Bridge. 
 
-
+<img src=http://www.hakim.ws/img/philipshue-info.nse></img>
 
 <h3>wemo-switch.nse</h3>
    
