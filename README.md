@@ -2,6 +2,12 @@ nmap-nse-scripts
 ================
 
 
+<h3>philips-hue-info.nse</h3>
+
+The Philips Hue is a wireless lighting system. This script obtains information from the web API of the Philips Hue Bridge. 
+
+
+
 <h3>wemo-switch.nse</h3>
    
 The Belkin Wemo Switch is a network enabled power outlet. This scripts changes the switch state (ON/OFF) acording to the argument BinaryState.
