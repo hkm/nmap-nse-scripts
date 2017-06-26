@@ -58,7 +58,7 @@ local function GetInformation(host, port)
   if response.body and response['body']:match("bridgeid") then
     local stat, output = json.parse(response.body)
     if not stat then
-	  local errmesg = "Error parsing JSON from "..URI.." response: "..output
+      local errmesg = "Error parsing JSON from "..URI.." response: "..output
       stdnse.debug1(errmesg)
       return nil, errmesg
     end
