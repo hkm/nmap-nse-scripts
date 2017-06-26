@@ -6,8 +6,8 @@ local shortport = require "shortport"
 local json = require "json"
 
 description = [[
-The Philips Hue Bridge is a wireless lighting system. This script obtains
-information from the web API of the bridge. 
+The Philips Hue is a wireless lighting system. This script obtains
+information from the web API of the Philips Hue Bridge. 
 
 Tested on Philips Hue Bridge apiversion: 1.19.0 on 6/25/17.
 
