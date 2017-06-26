@@ -54,6 +54,7 @@ portrule = shortport.portnumber(80)
 local URI = '/api/config'
 
 local function GetInformation(host, port)
+  errmsg = ""
   local response = http.get(host, port, URI)
   if response.body and response['body']:match("bridgeid") then
     local stat, output = json.parse(response.body)
@@ -61,16 +62,15 @@ local function GetInformation(host, port)
 	  return output
 
 	else
-	  errmesg = "Error parsing JSON from "..URI.." response: "..output
-      stdnse.debug1(errmesg)
-      return nil, errmesg
+	  errmsg = "Error parsing JSON from "..URI.." response: "..output
     end
   else
     errmsg = "No response or 'bridgeid' not found in response"
-    stdnse.debug1(errmesg)
-    return nil, errmesg
   end
+    stdnse.debug1(errmsg)
+    return nil, errmsg
 end
+
 
 action = function(host,port)
   return GetInformation(host, port)
