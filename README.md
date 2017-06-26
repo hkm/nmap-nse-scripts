@@ -6,16 +6,22 @@ nmap-nse-scripts
 
 The Philips Hue is a wireless lighting system. This script obtains information from the web API of the Philips Hue Bridge. 
 
-<img src=http://www.hakim.ws/img/philipshue-info.png></img>
+<img src=http://www.hakim.ws/img/philipshue-info.png />
+
 
 <h3>wemo-switch.nse</h3>
    
 The Belkin Wemo Switch is a network enabled power outlet. This scripts changes the switch state (ON/OFF) acording to the argument BinaryState.
+
+
+<img src=http://www.hakim.ws/img/wemo-switch.png />
    
    
 <h3>wemo-info.nse</h3>
 
 The Belkin Wemo Switch is a network enabled power outlet. This scripts obtains information from Belkin Wemo Switch including nearby wireless networks and the current switch state (ON/OFF).
+
+<img src=http://www.hakim.ws/img/wemo-info.png />
 
 
 <h3>http-wordpress-attachment.nse</h3>
