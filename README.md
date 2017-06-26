@@ -13,6 +13,7 @@ The Philips Hue is a wireless lighting system. This script obtains information f
    
 The Belkin Wemo Switch is a network enabled power outlet. This scripts changes the switch state (ON/OFF) acording to the argument BinaryState.
 
+Blog: http://websec.ca/blog/view/Belkin-Wemo-Switch-NMap-Scripts
 
 <img src=http://www.hakim.ws/img/wemo-switch.png />
    
@@ -20,6 +21,8 @@ The Belkin Wemo Switch is a network enabled power outlet. This scripts changes t
 <h3>wemo-info.nse</h3>
 
 The Belkin Wemo Switch is a network enabled power outlet. This scripts obtains information from Belkin Wemo Switch including nearby wireless networks and the current switch state (ON/OFF).
+
+Blog: http://websec.ca/blog/view/Belkin-Wemo-Switch-NMap-Scripts
 
 <img src=http://www.hakim.ws/img/wemo-info.png />
 
