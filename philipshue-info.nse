@@ -57,17 +57,18 @@ local function GetInformation(host, port)
   local response = http.get(host, port, URI)
   if response.body and response['body']:match("bridgeid") then
     local stat, output = json.parse(response.body)
-    if not stat then
-      local errmesg = "Error parsing JSON from "..URI.." response: "..output
+    if stat then
+	  return output
+
+	else
+	  errmesg = "Error parsing JSON from "..URI.." response: "..output
       stdnse.debug1(errmesg)
       return nil, errmesg
     end
-    return output
-
   else
     errmsg = "No response or 'bridgeid' not found in response"
     stdnse.debug1(errmesg)
-    return false, errmesg
+    return nil, errmesg
   end
 end
 
