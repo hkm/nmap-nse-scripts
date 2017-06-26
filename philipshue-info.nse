@@ -54,7 +54,6 @@ portrule = shortport.portnumber(80)
 local URI = '/api/config'
 
 local function GetInformation(host, port)
-  errmsg = ""
   local response = http.get(host, port, URI)
   if response.body and response['body']:match("bridgeid") then
     local stat, output = json.parse(response.body)
