@@ -6,6 +6,8 @@ nmap-nse-scripts
 
 Trane Tracer SC is an intelligent field panel for communicating with HVAC equipment controllers. Contents of specific directories on the Tracer SC are exposed with the web server application to unauthenticated users. This script obtains information about the installed devices.
 
+<img src=http://www.hakim.ws/img/trane-info.png />
+
 
 <h3>philipshue-info.nse</h3>
 
