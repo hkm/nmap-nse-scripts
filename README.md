@@ -15,6 +15,8 @@ The Belkin Wemo Switch is a network enabled power outlet. This scripts changes t
 
 Blog: http://websec.ca/blog/view/Belkin-Wemo-Switch-NMap-Scripts
 
+<iframe width="853" height="480" src="https://www.youtube.com/embed/gfsV7Sh0EgI" frameborder="0" allowfullscreen></iframe>
+
 <img src=http://www.hakim.ws/img/wemo-switch.png />
    
    
