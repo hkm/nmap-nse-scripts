@@ -20,7 +20,7 @@ References:
 ]]
 
 ---
--- @usage nmap -p80 --script trane-info.nse <target>
+-- @usage nmap -p80 --script http-vuln-cve2016-0870.nse <target>
 --
 -- @output
 -- | trane-info:
