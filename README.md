@@ -2,6 +2,11 @@ nmap-nse-scripts
 ================
 
 
+<h3>http-vuln-cve2016-0870.nse</h3>
+
+Trane Tracer SC is an intelligent field panel for communicating with HVAC equipment controllers. Contents of specific directories on the Tracer SC are exposed with the web server application to unauthenticated users. This script obtains information about the administrators (name, email, phone).
+
+
 <h3>trane-info.nse</h3>
 
 Trane Tracer SC is an intelligent field panel for communicating with HVAC equipment controllers. Contents of specific directories on the Tracer SC are exposed with the web server application to unauthenticated users. This script obtains information about the installed devices.
